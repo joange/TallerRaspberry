@@ -1,0 +1,2 @@
+Median Filter PSNR: 39.58748018593046 db
+Vector Median Filter PSNR: 35.75341806657845 db
