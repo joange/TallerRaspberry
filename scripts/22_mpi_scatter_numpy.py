@@ -8,7 +8,7 @@ comm = MPI.COMM_WORLD
 size = comm.Get_size()
 rank = comm.Get_rank()
 
-tamany=1000
+tamany=100
 bloc=tamany/size
 
 # Al master creem un vector amb numpy. arrange el crea amb la serie 1,2,3,4,5...
@@ -28,4 +28,9 @@ l_data=np.empty(bloc,dtype='i')
 # Fem la divisió. Dividim lo global a lo local
 # Fixa't que la S és majúscula i conté una v al final (vector)
 comm.Scatterv(g_data,l_data,root=0)
+
+# esperem una mica tots, de manera proporcional
+time.sleep(rank/500)
+print("Jo soc el procés %d i les meues dades son"%rank)
+print(l_data)
 

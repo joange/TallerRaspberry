@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 from mpi4py import MPI
 import sys
-from random import random
+import random
 
 #   Ho fan tots. Quí soc i on estic ??
 
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 size = comm.Get_size()
+status=MPI.Status()
 name=MPI.Get_processor_name()
 
 #           Codi de el master
@@ -22,6 +23,7 @@ if rank==0:
     resposta=comm.recv(source=MPI.ANY_SOURCE,tag=1)
     proc=comm.recv(source=MPI.ANY_SOURCE,tag=2)
     print("El proces %d m'ha tornat un numero %d"%(proc,resposta))
+    acabats=acabats+1
 
 #            Codi dels nodes
 else:

@@ -11,7 +11,7 @@ tam=4
 # creem una matriu quadrada. Amb valor inicial el rank del procés
 sendbuf = np.zeros([tam,tam], dtype='i') + rank
 
-print("El procés %d ha creat: "%rank,sendbuf)
+print("El proces %d ha creat: "%rank,sendbuf)
 
 # creem varaible en tots els nodes
 recvbuf = None

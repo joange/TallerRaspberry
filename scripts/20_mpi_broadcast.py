@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from mpi4py import MPI
 
 comm = MPI.COMM_WORLD
@@ -15,5 +17,5 @@ else:       # El que rep te sols la variable
 data = comm.bcast(data, root=0)
 
 # -- En totes el processos el mateix valor
-print('Al node ' + str(rank): )
+print('Al node ' + str(rank) +':' )
 print(data)
