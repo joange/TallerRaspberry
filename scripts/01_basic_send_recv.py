@@ -19,7 +19,7 @@ if rank==0:
     comm.send(data,dest=i,tag=1)
   
   acabats=0
-  while acabats<size:
+  while acabats<size-1:
     resposta=comm.recv(source=MPI.ANY_SOURCE,tag=1)
     proc=comm.recv(source=MPI.ANY_SOURCE,tag=2)
     print("El proces %d m'ha tornat un numero %d"%(proc,resposta))
