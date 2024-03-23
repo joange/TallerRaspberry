@@ -1,0 +1,20 @@
+version: "2"
+
+services:
+  mpi_head:
+    build: .
+    ports: 
+      - "22"
+    links: 
+      - mpi_node
+    networks:
+      - net
+
+  mpi_node:
+    build: .
+    networks:
+      - net
+
+networks:
+  net:
+    driver: bridge
